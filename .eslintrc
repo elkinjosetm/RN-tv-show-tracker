@@ -1,0 +1,22 @@
+{
+	"extends" : ["rallycoding", "plugin:jsx-control-statements/recommended"],
+	"rules" : {
+		"arrow-body-style": 0,
+		"max-len": 0,
+		"no-nested-ternary": 0,
+		"no-underscore-dangle": 0,
+		"prefer-template": 0,
+		"global-require": 0,
+		"import/no-unresolved": 0,
+		"import/no-extraneous-dependencies": 0,
+		"jsx-control-statements/jsx-jcs-no-undef": 0,
+		"key-spacing": 0,
+		"camelcase": 0,
+		"react/jsx-curly-spacing": 0,
+		"curly" : 0,
+		"react/sort-comp": 1
+	},
+	"plugins": [
+		"jsx-control-statements"
+	]
+}
