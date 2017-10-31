@@ -1,8 +1,9 @@
 import { AsyncStorage } from 'react-native';
 
 const App = {
-	name        : 'RNBoilerplate',
-	displayName : 'React Native Boilerplate',
+	name         : 'RNBoilerplate',
+	displayName  : 'React Native Boilerplate',
+	fieldTimeout : 300,
 };
 
 const Urls = {

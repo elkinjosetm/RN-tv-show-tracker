@@ -6,8 +6,8 @@ import AppRouter from '@routers/AppRouter';
 import styles from './styles';
 
 class RootContainer extends Component {
-	componentWillMount() {
-		this.statusBarConfig = {
+	render() {
+		const statusBarConfig = {
 			...Platform.select({
 				android : {
 					backgroundColor : Colors.pictonBlue,
@@ -16,13 +16,11 @@ class RootContainer extends Component {
 			}),
 			barStyle : 'light-content',
 		};
-	}
 
-	render() {
 		return (
 			<View style={ styles.application }>
 				<View style={ styles.statusBar }>
-					<StatusBar { ...this.statusBarConfig } />
+					<StatusBar { ...statusBarConfig } />
 				</View>
 				<AppRouter />
 			</View>

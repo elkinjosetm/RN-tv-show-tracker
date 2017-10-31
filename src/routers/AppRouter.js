@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Colors, AppStyles } from '@theme';
 
 // Containers
-import HomeScreen from '@screens/home';
-import SecondScreen from '@screens/secondScreen';
+import Home from '@screens/home';
+import NewShow from '@screens/newShow';
 
 /**
  * Base definition of navigation options
@@ -41,8 +41,7 @@ const appNavigatorConfig = {
  * Drawer definition
  */
 const drawerRouterConfig = {
-	home   : { screen : HomeScreen },
-	second : { screen : SecondScreen },
+	home : { screen : Home },
 };
 
 /**
@@ -58,6 +57,7 @@ const appRouteConfig = {
 		screen : DrawerNavigator(drawerRouterConfig, drawerNavigatorConfig),
 		navigationOptions,
 	},
+	newShow : { screen : NewShow },
 };
 
 export const NavigationRouter = StackNavigator(appRouteConfig, appNavigatorConfig);

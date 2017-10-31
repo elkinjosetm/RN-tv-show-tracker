@@ -3,8 +3,9 @@ export default {
 		home : {
 			title : 'Home',
 		},
-		secondScreen : {
-			title : 'Second Screen',
+		newShow : {
+			title : 'New TV Show',
+			name  : 'Name',
 		},
 	},
 };

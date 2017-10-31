@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Icon } from '@components';
-import Strings from '@i18n';
 import { Colors } from '@theme';
+import Strings from '@i18n';
+import styles from './styles';
 
 class HomeContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
-		title      : Strings.screen.home.title,
-		headerLeft : (
+		title       : Strings.screen.home.title,
+		headerLeft  : (
 			<Icon
 				name="bars"
 				size={ 15 }
@@ -16,12 +17,19 @@ class HomeContainer extends Component {
 				onPress={ () => navigation.navigate('DrawerOpen') }
 			/>
 		),
-		headerRight  : <View />, // Android fix
+		headerRight : (
+			<Icon
+				name="plus"
+				size={ 16 }
+				color={ Colors.white }
+				onPress={ () => navigation.navigate('newShow') }
+			/>
+		),
 	});
 
 	render() {
 		return (
-			<View>
+			<View style={ styles.container }>
 				<Text>Hello world</Text>
 			</View>
 		);
