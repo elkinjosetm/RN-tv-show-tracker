@@ -22,4 +22,5 @@ export default {
 	navTabHeight        : 49 + (isIphoneX() ? IPHONE_X_HOME_INDICATOR_HEIGHT : 0),
 	homeIndicatorHeight : isIphoneX() ? IPHONE_X_HOME_INDICATOR_HEIGHT : 0,
 	bottomWithHome      : IPHONE_X_HOME_INDICATOR_HEIGHT - 10,
+	borderRadius        : 4,
 };

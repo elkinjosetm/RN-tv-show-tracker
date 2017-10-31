@@ -5,14 +5,14 @@ import Helpers from './Helpers';
 
 export default {
 	screen : {
-		application               : {
-			flex            : 1,
-			backgroundColor : Colors.polar,
+		application : {
+			flex : 1,
 		},
 
-		container                 : {
+		container   : {
 			flex            : 1,
-			backgroundColor : Colors.polar,
+			backgroundColor : Colors.white,
+			padding         : 16,
 		},
 	},
 
@@ -35,6 +35,42 @@ export default {
 			alignSelf        : 'center',
 			fontSize         : 24,
 			marginHorizontal : 16,
+		},
+	},
+
+	form   : {
+		formGroup : {
+			marginBottom : 15,
+		},
+
+		controlLabel : {
+			...Helpers.fontHelpers.ff_regular,
+			color        : Colors.mineShaft,
+			marginBottom : 7,
+			fontSize     : 16,
+			lineHeight   : 24,
+		},
+
+		formControl : {
+			...Helpers.fontHelpers.ff_regular,
+			borderRadius      : Metrics.borderRadius,
+			borderColor       : Colors.mischka,
+			backgroundColor   : Colors.white,
+			shadowColor       : Colors.shadow,
+			height            : 48,
+			borderWidth       : 1,
+			paddingVertical   : 6,
+			paddingHorizontal : 12,
+			shadowOpacity     : 1,
+			shadowRadius      : 1,
+			shadowOffset      : {
+				width  : 0,
+				height : 0,
+			},
+		},
+
+		formControlError : {
+			borderColor : Colors.brinkPink,
 		},
 	},
 };
