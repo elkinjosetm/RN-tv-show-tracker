@@ -9,8 +9,8 @@ import styles from './styles';
 
 class NewShowContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
-		title      : Strings.screen.newShow.title,
-		headerLeft : (
+		title       : Strings.screen.newShow.title,
+		headerLeft  : (
 			<Icon
 				name='chevron-left'
 				size={ 15 }
@@ -18,6 +18,7 @@ class NewShowContainer extends Component {
 				onPress={ () => navigation.goBack() }
 			/>
 		),
+		headerRight : <View /> // Android fix
 	});
 
 	render() {

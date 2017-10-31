@@ -6,9 +6,11 @@ import { Colors } from '@theme';
 import Strings from '@i18n';
 import styles from './styles';
 
+const screenStrings = Strings.screen.home;
+
 class HomeContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
-		title       : Strings.screen.home.title,
+		title       : screenStrings.title,
 		headerLeft  : (
 			<Icon
 				name="bars"
@@ -30,7 +32,7 @@ class HomeContainer extends Component {
 	render() {
 		return (
 			<View style={ styles.container }>
-				<Text>Hello world</Text>
+				<Text>{ screenStrings.emptyList }</Text>
 			</View>
 		);
 	}

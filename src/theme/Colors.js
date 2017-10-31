@@ -1,11 +1,12 @@
+const thunderbird = '#b8161a';
+
 export default {
-	black      : '#000',
-	white      : '#fff',
-	polar      : '#f0f7fc',
-	silver     : '#ccc',
-	pictonBlue : '#389bed',
-	shadow     : 'rgba(0,0,0,.075)',
-	brinkPink  : '#f85a78',
-	mineShaft  : '#212121',
-	mischka    : '#ced4da',
+	thunderbird,
+	primary   : thunderbird,
+	black     : '#000',
+	white     : '#fff',
+	silver    : '#ccc',
+	shadow    : 'rgba(0,0,0,.075)',
+	shark     : '#212529',
+	mischka   : '#ced4da',
 };

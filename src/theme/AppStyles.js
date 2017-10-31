@@ -18,7 +18,7 @@ export default {
 
 	navBar : {
 		header : {
-			backgroundColor : Colors.pictonBlue,
+			backgroundColor : Colors.primary,
 			paddingLeft     : 16,
 			paddingRight    : 16,
 			...ifIphoneX({
@@ -45,7 +45,7 @@ export default {
 
 		controlLabel : {
 			...Helpers.fontHelpers.ff_regular,
-			color        : Colors.mineShaft,
+			color        : Colors.shark,
 			marginBottom : 7,
 			fontSize     : 16,
 			lineHeight   : 24,
@@ -67,10 +67,6 @@ export default {
 				width  : 0,
 				height : 0,
 			},
-		},
-
-		formControlError : {
-			borderColor : Colors.brinkPink,
 		},
 	},
 };

@@ -10,7 +10,7 @@ class RootContainer extends Component {
 		const statusBarConfig = {
 			...Platform.select({
 				android : {
-					backgroundColor : Colors.pictonBlue,
+					backgroundColor : Colors.primary,
 					translucent     : true,
 				}
 			}),
