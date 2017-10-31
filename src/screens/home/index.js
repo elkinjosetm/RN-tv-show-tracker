@@ -16,7 +16,7 @@ class HomeContainer extends Component {
 				name="bars"
 				size={ 15 }
 				color={ Colors.white }
-				onPress={ () => navigation.navigate('DrawerOpen') }
+				onPress={ () => navigation.showMenu(true) }
 			/>
 		),
 		headerRight : (

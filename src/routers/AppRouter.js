@@ -1,6 +1,8 @@
 import React from 'react';
-import { StackNavigator, DrawerNavigator, addNavigationHelpers } from 'react-navigation';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import AppActions from '@redux.modules/app';
 import { Colors, AppStyles } from '@theme';
 
 // Containers
@@ -18,14 +20,6 @@ const navigationOptions = {
 };
 
 /**
- * Drawer config
- */
-const drawerNavigatorConfig = {
-	initialRouteName : 'home',
-	drawerWidth      : 200,
-};
-
-/**
  * App Navigator config
  */
 const appNavigatorConfig = {
@@ -38,13 +32,6 @@ const appNavigatorConfig = {
 };
 
 /**
- * Drawer definition
- */
-const drawerRouterConfig = {
-	home : { screen : Home },
-};
-
-/**
  * App Router config, main view (tab),
  * and every other internal views.
  *
@@ -53,17 +40,14 @@ const drawerRouterConfig = {
  * the tab Navigator, inside the StackNavigator
  */
 const appRouteConfig = {
-	index : {
-		screen : DrawerNavigator(drawerRouterConfig, drawerNavigatorConfig),
-		navigationOptions,
-	},
+	index   : { screen : Home },
 	newShow : { screen : NewShow },
 };
 
 export const NavigationRouter = StackNavigator(appRouteConfig, appNavigatorConfig);
 
-const AppWithNavigationState = ({ dispatch, state }) => (
-	<NavigationRouter navigation={ addNavigationHelpers({ dispatch, state }) } />
+const AppWithNavigationState = ({ dispatch, state, showMenu }) => (
+	<NavigationRouter navigation={ addNavigationHelpers({ dispatch, state, showMenu }) } />
 );
 
 const mapStateToProps = ({ nav }) => ({
@@ -72,6 +56,7 @@ const mapStateToProps = ({ nav }) => ({
 
 const mapDispatchToProps = dispatch => ({
 	dispatch,
+	showMenu : bindActionCreators(AppActions, dispatch).showMenu,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppWithNavigationState);

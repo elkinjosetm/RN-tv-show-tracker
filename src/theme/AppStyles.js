@@ -56,7 +56,7 @@ export default {
 			borderRadius      : Metrics.borderRadius,
 			borderColor       : Colors.mischka,
 			backgroundColor   : Colors.white,
-			shadowColor       : Colors.shadow,
+			shadowColor       : Colors.fieldShadow,
 			height            : 48,
 			borderWidth       : 1,
 			paddingVertical   : 6,

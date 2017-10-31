@@ -1,7 +1,7 @@
 export default {
 	screen : {
 		home : {
-			title : 'Home',
+			title     : 'Home',
 			emptyList : "Looks like you don't have any TV Show yet. Add one!",
 		},
 		newShow : {

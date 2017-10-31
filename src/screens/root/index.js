@@ -3,6 +3,7 @@ import { Platform, StatusBar, View } from 'react-native';
 import { connect } from 'react-redux';
 import { Colors } from '@theme';
 import AppRouter from '@routers/AppRouter';
+import { AppMenu } from '@modals';
 import styles from './styles';
 
 class RootContainer extends Component {
@@ -23,6 +24,7 @@ class RootContainer extends Component {
 					<StatusBar { ...statusBarConfig } />
 				</View>
 				<AppRouter />
+				<AppMenu />
 			</View>
 		);
 	}

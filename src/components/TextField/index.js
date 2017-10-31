@@ -179,7 +179,7 @@ const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	setFieldValue : bindActionCreators(GlobalsActions, dispatch).setFieldValue
+	setFieldValue : bindActionCreators(GlobalsActions, dispatch).setFieldValue,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, null, { withRef : true })(TextField);
