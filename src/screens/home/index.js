@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { Icon } from '@components';
 import Strings from '@i18n';
+import { Colors } from '@theme';
 
 class HomeContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
 		title      : Strings.screen.home.title,
-		// tabBarIcon : ({ focused, tintColor }) => (
-		// 	<Icon
-		// 		name={ `job-search-${focused ? 'fill' : 'line'}` }
-		// 		size={ 25 }
-		// 		color={ tintColor }
-		// 	/>
-		// ),
 		headerLeft : (
-			<TouchableHighlight onPress={ () => navigation.navigate('DrawerOpen') }>
-				<Text>Menu!</Text>
-			</TouchableHighlight>
+			<Icon
+				name="bars"
+				size={ 15 }
+				color={ Colors.white }
+				onPress={ () => navigation.navigate('DrawerOpen') }
+			/>
 		),
 		headerRight  : <View />, // Android fix
 	});
