@@ -16,7 +16,7 @@ export default class NewShowComponent extends Component {
 					<Text style={ styles.controlLabel }>{ viewStrings.name }</Text>
 					<TextField
 						module='shows'
-						property='newShow.name'
+						property='tempShow.name'
 						value={ show.name }
 						placeholder={ viewStrings.name }
 					/>

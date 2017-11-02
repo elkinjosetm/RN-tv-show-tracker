@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Icon } from '@components';
 import { Colors } from '@theme';
 import Strings from '@i18n';
+import { thunks } from '@redux.modules/shows';
 import NewShowComponent from './index.component';
 import styles from './styles';
 
@@ -18,7 +19,14 @@ class NewShowContainer extends Component {
 				onPress={ () => navigation.goBack() }
 			/>
 		),
-		headerRight : <View /> // Android fix
+		headerRight : (
+			<Icon
+				name='check'
+				size={ 15 }
+				color={ Colors.white }
+				onPress={ () => navigation.dispatch(thunks.goToStep2()) }
+			/>
+		),
 	});
 
 	render() {
@@ -35,7 +43,7 @@ class NewShowContainer extends Component {
 }
 
 const mapStateToProps = ({ shows }) => ({
-	show : shows.newShow,
+	show : shows.tempShow,
 });
 
 const mapDispatchToProps = (/*dispatch*/) => ({
