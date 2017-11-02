@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { TouchableHighlight, View } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Icon } from '@components';
 import { Colors } from '@theme';
 import Strings from '@i18n';
-import { thunks } from '@redux.modules/shows';
+import Actions, { thunks } from '@redux.modules/shows';
 import NewShowComponent from './index.component';
 import styles from './styles';
 
@@ -12,30 +13,46 @@ class NewShowContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
 		title       : Strings.screen.newShow.title,
 		headerLeft  : (
-			<Icon
-				name='chevron-left'
-				size={ 15 }
-				color={ Colors.white }
+			<TouchableHighlight
+				style={ styles.navButton }
 				onPress={ () => navigation.goBack() }
-			/>
+				underlayColor={ Colors.fieldShadow }
+			>
+				<View>
+					<Icon
+						name='chevron-left'
+						size={ 15 }
+						color={ Colors.white }
+					/>
+				</View>
+			</TouchableHighlight>
 		),
 		headerRight : (
-			<Icon
-				name='check'
-				size={ 15 }
-				color={ Colors.white }
-				onPress={ () => navigation.dispatch(thunks.goToStep2()) }
-			/>
+			<TouchableHighlight
+				style={ styles.navButton }
+				onPress={ () => navigation.dispatch(thunks.save()) }
+				underlayColor={ Colors.fieldShadow }
+			>
+				<View>
+					<Icon
+						name='check'
+						size={ 15 }
+						color={ Colors.white }
+					/>
+				</View>
+			</TouchableHighlight>
 		),
 	});
 
 	render() {
-		const { show } = this.props;
+		const { tempShow, addSeason, removeSeason } = this.props;
 
 		return (
 			<View style={ styles.container }>
 				<NewShowComponent
-					show={ show }
+					tempShow={ tempShow }
+					addSeason={ addSeason }
+					removeSeason={ removeSeason }
 				/>
 			</View>
 		);
@@ -43,10 +60,13 @@ class NewShowContainer extends Component {
 }
 
 const mapStateToProps = ({ shows }) => ({
-	show : shows.tempShow,
+	tempShow : shows.tempShow,
 });
 
-const mapDispatchToProps = (/*dispatch*/) => ({
+const mapDispatchToProps = dispatch => ({
+	dispatch,
+	addSeason : bindActionCreators(Actions, dispatch).addSeason,
+	removeSeason : bindActionCreators(Actions, dispatch).removeSeason,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewShowContainer);
