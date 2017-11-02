@@ -1,12 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { AppStyles, Colors } from '@theme';
+import { AppStyles, Colors, Helpers } from '@theme';
 
 export default StyleSheet.create({
 	...AppStyles.navBar,
 	...AppStyles.form,
+	...Helpers.marginHelpers,
 
 	container : {
 		...AppStyles.screen.container,
+		paddingHorizontal : 16,
 	},
 
 	seasonsTitleContainer : {

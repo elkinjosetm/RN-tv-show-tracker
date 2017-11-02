@@ -13,6 +13,7 @@ export default class NewShowComponent extends Component {
 
 		return (
 			<ScrollView>
+				<View style={ styles.mb_16 } />
 				<View style={ styles.formGroup }>
 					<Text style={ styles.controlLabel }>{ viewStrings.name }</Text>
 					<TextField
@@ -69,6 +70,7 @@ export default class NewShowComponent extends Component {
 						</TouchableHighlight>
 					</View>
 				</For>
+				<View style={ styles.mb_16 } />
 			</ScrollView>
 		);
 	}

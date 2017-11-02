@@ -45,6 +45,10 @@ class HomeContainer extends Component {
 		),
 	});
 
+	goToShow = uuid => {
+		console.log('TV Show UUID:', uuid);
+	}
+
 	render() {
 		const { shows } = this.props;
 		const activeShows = filter(shows, 'active');
@@ -66,7 +70,7 @@ class HomeContainer extends Component {
 									title={ show.name }
 									detail={ Strings.formatString(screenStrings.seasons, show.seasons.length) }
 									accessory="DisclosureIndicator"
-									onPress={ () => console.log('Heyho!') }
+									onPress={ this.goToShow.bind(null, show.uuid) }
 								/>
 							</For>
 						</Section>
@@ -84,7 +88,7 @@ class HomeContainer extends Component {
 									title={ show.name }
 									detail={ Strings.formatString(screenStrings.seasons, show.seasons.length) }
 									accessory="DisclosureIndicator"
-									onPress={ () => console.log('Heyho!') }
+									onPress={ this.goToShow.bind(null, show.uuid) }
 								/>
 							</For>
 						</Section>

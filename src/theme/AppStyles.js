@@ -11,8 +11,7 @@ export default {
 
 		container   : {
 			flex            : 1,
-			backgroundColor : Colors.white,
-			padding         : 16,
+			backgroundColor : Colors.athensGray,
 		},
 	},
 

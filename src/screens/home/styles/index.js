@@ -6,8 +6,6 @@ export default StyleSheet.create({
 
 	container : {
 		...AppStyles.screen.container,
-		padding         : 0,
-		backgroundColor : Colors.athensGray,
 	},
 
 	show : {
