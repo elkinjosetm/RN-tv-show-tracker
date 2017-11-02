@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { Icon } from '@components';
 import { Colors } from '@theme';
@@ -12,20 +12,34 @@ class HomeContainer extends Component {
 	static navigationOptions = ({ navigation }) => ({
 		title       : screenStrings.title,
 		headerLeft  : (
-			<Icon
-				name="bars"
-				size={ 15 }
-				color={ Colors.white }
+			<TouchableHighlight
+				style={ styles.navButton }
 				onPress={ () => navigation.showMenu(true) }
-			/>
+				underlayColor={ Colors.fieldShadow }
+			>
+				<View>
+					<Icon
+						name="bars"
+						size={ 15 }
+						color={ Colors.white }
+					/>
+				</View>
+			</TouchableHighlight>
 		),
 		headerRight : (
-			<Icon
-				name="plus"
-				size={ 16 }
-				color={ Colors.white }
+			<TouchableHighlight
+				style={ styles.navButton }
 				onPress={ () => navigation.navigate('newShow') }
-			/>
+				underlayColor={ Colors.fieldShadow }
+			>
+				<View>
+					<Icon
+						name="plus"
+						size={ 16 }
+						color={ Colors.white }
+					/>
+				</View>
+			</TouchableHighlight>
 		),
 	});
 

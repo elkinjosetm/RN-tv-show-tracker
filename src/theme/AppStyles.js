@@ -36,6 +36,10 @@ export default {
 			fontSize         : 24,
 			marginHorizontal : 16,
 		},
+
+		navButton : {
+			padding : 10,
+		},
 	},
 
 	form   : {
