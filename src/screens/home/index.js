@@ -54,12 +54,16 @@ class HomeContainer extends Component {
 					index='index'
 					of={ shows }
 				>
-					<View
+					<TouchableHighlight
 						key={ show.uuid }
+						style={ [styles.show, index === (shows.length - 1) ? styles.lastShow : undefined] }
+						underlayColor={ Colors.fieldShadow }
 					>
-						<Text>{ show.name }</Text>
-						<Text>{ Strings.formatString(screenStrings.seasons, show.seasons.length) }</Text>
-					</View>
+						<View>
+							<Text style={ styles.showName }>{ show.name }</Text>
+							<Text style={ styles.seasons }>{ Strings.formatString(screenStrings.seasons, show.seasons.length) }</Text>
+						</View>
+					</TouchableHighlight>
 				</For>
 				<If condition={ isEmpty(shows) }>
 					<Text>{ screenStrings.emptyList }</Text>
