@@ -6,6 +6,7 @@ export default {
 	black         : '#000',
 	white         : '#fff',
 	silver        : '#ccc',
+	athensGray    : '#efeff4',
 	fieldShadow   : 'rgba(0,0,0,.075)',
 	overlayShadow : 'rgba(0,0,0,.7)',
 	shark         : '#212529',

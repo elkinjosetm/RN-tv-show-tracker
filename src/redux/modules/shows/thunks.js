@@ -3,7 +3,6 @@ import { NavigationActions } from 'react-navigation';
 import { isEmpty } from 'lodash';
 import Toast from 'react-native-simple-toast';
 import { v4 as newUUID } from 'uuid';
-import { _SHOW_STATUS_ } from '@constants';
 import Strings from '@i18n';
 import Actions from './';
 
@@ -25,7 +24,7 @@ export const save = () => ((dispatch, getState) => {
 		uuid,
 		createdDate,
 		seasons,
-		status : _SHOW_STATUS_.active,
+		active : true,
 	}));
 
 	dispatch(Actions.resetTempShow());

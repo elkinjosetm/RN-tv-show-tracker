@@ -4,9 +4,11 @@ export default {
 	},
 	screen : {
 		home : {
-			title     : 'Home',
+			title     : 'TV Shows',
 			emptyList : "Looks like you don't have any TV Show yet. Add one!",
-			seasons   : 'Seasons: {0}',
+			seasons   : 'Seasons : {0}',
+			active    : 'Active Shows',
+			coming    : 'Coming Shows',
 		},
 		newShow : {
 			title      : 'New TV Show',

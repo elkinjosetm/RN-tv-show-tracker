@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
+import { Cell, Section, TableView, } from 'react-native-tableview-simple';
 import { connect } from 'react-redux';
-import { isEmpty } from 'lodash';
+import { isEmpty, filter } from 'lodash';
 import { Icon } from '@components';
 import { Colors } from '@theme';
 import Strings from '@i18n';
@@ -46,25 +47,49 @@ class HomeContainer extends Component {
 
 	render() {
 		const { shows } = this.props;
+		const activeShows = filter(shows, 'active');
+		const comingShows = filter(shows, ['active', false]);
 
 		return (
 			<ScrollView style={ styles.container }>
-				<For
-					each='show'
-					index='index'
-					of={ shows }
-				>
-					<TouchableHighlight
-						key={ show.uuid }
-						style={ [styles.show, index === (shows.length - 1) ? styles.lastShow : undefined] }
-						underlayColor={ Colors.fieldShadow }
-					>
-						<View>
-							<Text style={ styles.showName }>{ show.name }</Text>
-							<Text style={ styles.seasons }>{ Strings.formatString(screenStrings.seasons, show.seasons.length) }</Text>
-						</View>
-					</TouchableHighlight>
-				</For>
+				<TableView>
+					<If condition={ !isEmpty(activeShows) }>
+						<Section header={ screenStrings.active }>
+							<For
+								each='show'
+								index='index'
+								of={ activeShows }
+							>
+								<Cell
+									key={ show.uuid }
+									cellStyle="Subtitle"
+									title={ show.name }
+									detail={ Strings.formatString(screenStrings.seasons, show.seasons.length) }
+									accessory="DisclosureIndicator"
+									onPress={ () => console.log('Heyho!') }
+								/>
+							</For>
+						</Section>
+					</If>
+					<If condition={ !isEmpty(comingShows) }>
+						<Section header={ screenStrings.coming }>
+							<For
+								each='show'
+								index='index'
+								of={ comingShows }
+							>
+								<Cell
+									key={ show.uuid }
+									cellStyle="Subtitle"
+									title={ show.name }
+									detail={ Strings.formatString(screenStrings.seasons, show.seasons.length) }
+									accessory="DisclosureIndicator"
+									onPress={ () => console.log('Heyho!') }
+								/>
+							</For>
+						</Section>
+					</If>
+				</TableView>
 				<If condition={ isEmpty(shows) }>
 					<Text>{ screenStrings.emptyList }</Text>
 				</If>
