@@ -6,6 +6,7 @@ export default {
 		home : {
 			title     : 'Home',
 			emptyList : "Looks like you don't have any TV Show yet. Add one!",
+			seasons   : 'Seasons: {0}',
 		},
 		newShow : {
 			title      : 'New TV Show',

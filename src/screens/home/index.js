@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { ScrollView, View, Text, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
 import { Icon } from '@components';
 import { Colors } from '@theme';
 import Strings from '@i18n';
@@ -44,15 +45,32 @@ class HomeContainer extends Component {
 	});
 
 	render() {
+		const { shows } = this.props;
+
 		return (
-			<View style={ styles.container }>
-				<Text>{ screenStrings.emptyList }</Text>
-			</View>
+			<ScrollView style={ styles.container }>
+				<For
+					each='show'
+					index='index'
+					of={ shows }
+				>
+					<View
+						key={ show.uuid }
+					>
+						<Text>{ show.name }</Text>
+						<Text>{ Strings.formatString(screenStrings.seasons, show.seasons.length) }</Text>
+					</View>
+				</For>
+				<If condition={ isEmpty(shows) }>
+					<Text>{ screenStrings.emptyList }</Text>
+				</If>
+			</ScrollView>
 		);
 	}
 }
 
-const mapStateToProps = (/**/) => ({
+const mapStateToProps = ({ shows }) => ({
+	shows : shows.data,
 });
 
 const mapDispatchToProps = (/*dispatch*/) => ({
