@@ -1,35 +1,30 @@
 import { createActions, createReducer } from 'reduxsauce';
-import moment from 'moment';
-import { v4 as newUUID } from 'uuid';
 
 /* ------------- Initial State ------------- */
 export const INITIAL_STATE = {
-	data    : [],
-	newShow : {
-		uuid        : '',
-		name        : '',
-		createdDate : null,
+	data     : [],
+	tempShow : {
+		name : '',
 	},
 };
 
 /* ------------- Types and Action Creators ------------- */
 export const { Types, Creators } = createActions({
-	addShow : ['name'],
+	addShow : ['show'],
 });
 
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-	[Types.ADD_SHOW]: (state, { name }) => ({
+	[Types.ADD_SHOW]: (state, { show }) => ({
 		...state,
 		data : [
 			...state.data,
-			{
-				name,
-				uuid        : newUUID(),
-				createdDate : moment().format(),
-			}
+			show,
 		],
 	}),
 });
+
+/* ------------- Export thunks ------------- */
+export { default as thunks } from './thunks.js';
 
 export default Creators;
