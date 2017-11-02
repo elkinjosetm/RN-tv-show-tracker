@@ -29,4 +29,25 @@ export default StyleSheet.create({
 		...Helpers.fontHelpers.ff_regular,
 		fontSize : 12,
 	},
+
+	emptyState : {
+		marginTop      : 50,
+		width          : 200,
+		alignSelf      : 'center',
+		alignItems     : 'center',
+		justifyContent : 'center',
+	},
+
+	emptyTitle : {
+		fontSize     : 20,
+		marginTop    : 10,
+		marginBottom : 10,
+		color        : Colors.abbey,
+	},
+
+	emptyDescription : {
+		textAlign : 'center',
+		fontSize  : 14,
+		color     : Colors.osloGray,
+	},
 });

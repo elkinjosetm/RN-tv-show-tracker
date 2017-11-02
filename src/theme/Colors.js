@@ -11,4 +11,6 @@ export default {
 	overlayShadow : 'rgba(0,0,0,.7)',
 	shark         : '#212529',
 	mischka       : '#ced4da',
+	osloGray      : '#878B8F',
+	abbey         : '#54585C',
 };

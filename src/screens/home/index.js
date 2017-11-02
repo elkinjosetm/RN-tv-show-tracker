@@ -91,7 +91,15 @@ class HomeContainer extends Component {
 					</If>
 				</TableView>
 				<If condition={ isEmpty(shows) }>
-					<Text>{ screenStrings.emptyList }</Text>
+					<View style={ styles.emptyState }>
+						<Icon
+							name='television'
+							size={ 55 }
+							color={ Colors.abbey }
+						/>
+						<Text style={ styles.emptyTitle }>{ screenStrings.emptyTitle }</Text>
+						<Text style={ styles.emptyDescription }>{ screenStrings.emptyDescription }</Text>
+					</View>
 				</If>
 			</ScrollView>
 		);
