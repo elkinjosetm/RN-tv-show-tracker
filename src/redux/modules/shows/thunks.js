@@ -9,10 +9,11 @@ import Actions from './';
 
 /* ------------- Thunks actions ------------- */
 export const save = () => ((dispatch, getState) => {
-	const { name, seasons } = getState().shows.tempShow;
+	const { tempShow } = getState().shows;
+	const { name, seasons } = tempShow;
 
-	if (isEmpty(name) || isEmpty(seasons)) {
-		Toast.show(Strings.error.nameRequired);
+	if (!isValidShow(tempShow)) {
+		Toast.show(Strings.error.requiredData);
 		return;
 	}
 
@@ -30,6 +31,15 @@ export const save = () => ((dispatch, getState) => {
 	dispatch(Actions.resetTempShow());
 	dispatch(NavigationActions.back());
 });
+
+const isValidShow = ({ name, seasons }) => {
+	let valid = true;
+
+	valid = valid ? !isEmpty(name) : valid;
+	valid = valid ? !isEmpty(seasons) : valid;
+
+	return valid;
+};
 
 export default {
 	save,

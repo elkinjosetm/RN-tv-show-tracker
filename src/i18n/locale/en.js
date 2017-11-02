@@ -1,7 +1,6 @@
 export default {
 	error : {
-		nameRequired   : 'TV Show name required',
-		seasonRequired : 'The TV Show must have at least 1 season',
+		requiredData : 'TV Show name, and 1 season are required',
 	},
 	screen : {
 		home : {
